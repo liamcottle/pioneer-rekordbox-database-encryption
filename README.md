@@ -15,7 +15,7 @@ You can then decrypt your `master.db` file to `master_decrypted.db` with the fol
 ```
 sqlcipher master.db
 PRAGMA key = '402fd482c38817c35ffa8ffb8c7d93143b749e7d315df7a81732a1ff43608497';
-ATTACH DATABASE 'master_decrypted.db' AS master_decrypted  KEY '';
+ATTACH DATABASE 'master_decrypted.db' AS master_decrypted KEY '';
 SELECT sqlcipher_export('master_decrypted');
 DETACH DATABASE master_decrypted;
 ```
@@ -45,7 +45,7 @@ Then, create a file named `dump_keys.js` with the following:
 var sqlite3_open = Module.findExportByName(null, 'sqlite3_open');
 var sqlite3_key = Module.findExportByName(null, 'sqlite3_key');
 
-console.log("inject.js loaded");
+console.log("dump_keys.js loaded");
 
 Interceptor.attach(sqlite3_open, {
     onEnter: function(args) {

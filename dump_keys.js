@@ -1,7 +1,7 @@
 var sqlite3_open = Module.findExportByName(null, 'sqlite3_open');
 var sqlite3_key = Module.findExportByName(null, 'sqlite3_key');
 
-console.log("inject.js loaded");
+console.log("dump_keys.js loaded");
 
 Interceptor.attach(sqlite3_open, {
     onEnter: function(args) {
